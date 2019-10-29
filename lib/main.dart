@@ -1,18 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:moes_calculator/ui/home_page.dart';
 
 void main(){
   
-  Firestore.instance.collection("teste").document("teste").setData({"teste":"teste"});
-  
-  runApp(MyApp());
+  runApp(MaterialApp(
+    home: HomePage(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
 
 
