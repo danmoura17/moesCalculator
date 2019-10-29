@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "728101562062",
+    "firebase_url": "https://moescalculator.firebaseio.com",
+    "project_id": "moescalculator",
+    "storage_bucket": "moescalculator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728101562062:android:922465f6d6bfd6d853d29f",
+        "android_client_info": {
+          "package_name": "com.example.moes_calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728101562062-g45cdo7jf8fh6fjhak936u0rk46j8i5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASqsx31Xw1Ioqvq-lKO4Q8IJA_9yqA8tg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728101562062-g45cdo7jf8fh6fjhak936u0rk46j8i5h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "728101562062-jkpglhkcvc3uuionar4mn2f7urej0grf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.moesCalculator"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
