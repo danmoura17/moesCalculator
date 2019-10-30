@@ -53,13 +53,22 @@ class HomeTab extends StatelessWidget {
                 else{
                   print(snapshot.data.documents.length);
                   return SliverToBoxAdapter(
-                      child: Container(
-                        height: 200.0,
-                        alignment: Alignment.center,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                        ),
-                      )
+                    child: Container(
+                      height: 200.0,
+                      alignment: Alignment.center,
+                      child: ButtonBar(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          new RaisedButton(
+                            child: new Text("Cadastrar"),
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                              NewOrderPage()));
+                            },
+                          )
+                        ],
+                      ),
+                    )
                   );
                 }
               },
