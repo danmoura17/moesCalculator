@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moes_calculator/screens/home_screen.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,19 +9,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Atendimento", style: TextStyle(color: Colors.black),),
-        backgroundColor: Colors.yellow,
-        centerTitle: true,
+    return MaterialApp(
+      title: "Atendimento Moe's",
+      theme: ThemeData(
+        primarySwatch: Colors.yellow,
+        primaryColor: Color.fromARGB(255,4,125,141)
       ),
-      backgroundColor: Colors.white,
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        child: Icon(Icons.add, color: Colors.black,),
-        backgroundColor: Colors.yellow,
-      ),
-//      body: ListView.builder( padding: EdgeInsets.all(10.0), itemCount: , itemBuilder: (context, index)),
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen()
     );
   }
 }
