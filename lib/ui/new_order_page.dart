@@ -36,7 +36,7 @@ class _NewOrderPageState extends State<NewOrderPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){},
-        child: Icon(Icons.add),
+        child: Icon(Icons.add, color: Colors.white,),
         backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(

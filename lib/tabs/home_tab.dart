@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:moes_calculator/ui/new_order_page.dart';
 import 'package:path/path.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class HomeTab extends StatelessWidget {
   @override
@@ -51,25 +52,64 @@ class HomeTab extends StatelessWidget {
                     )
                   );
                 else{
-                  print(snapshot.data.documents.length);
-                  return SliverToBoxAdapter(
-                    child: Container(
-                      height: 200.0,
-                      alignment: Alignment.center,
-                      child: ButtonBar(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          new RaisedButton(
-                            child: new Text("Cadastrar"),
-                            onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                              NewOrderPage()));
-                            },
+                  switch(snapshot.connectionState){
+                    case ConnectionState.none:
+                    case ConnectionState.waiting:
+                      return Center (
+                        child: CircularProgressIndicator(),
+                      );
+                    default:
+                      return SliverToBoxAdapter(
+                          child: Container(
+                            height: 200.0,
+                            alignment: Alignment.center,
+                            child: ButtonBar(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                new RaisedButton(
+                                  child: new Text("Cadastrar"),
+                                  onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => NewOrderPage()));
+                                  },
+                                )
+                              ],
+                            )
                           )
-                        ],
-                      ),
-                    )
-                  );
+                      );
+//                      return SliverStaggeredGrid.count(
+//                        crossAxisCount: 1,
+//                        mainAxisSpacing: 1.0,
+//                        crossAxisSpacing: 1.0,
+//                        staggeredTiles: snapshot.data.documents.map(
+//                            (doc){
+//                              return StaggeredTile.count(2, 1);
+//                            }
+//                        ).toList(),
+//                        children: snapshot.data.documents.map(
+//                            (doc){
+//                              return FadeInImage.memoryNetwork(
+//                                placeholder: kTransparentImage,
+//                                image: doc.data["image"],
+//                                fit: BoxFit.cover
+//                              );
+//                            }
+//                        ).toList(),
+//                      );
+//                      return new ListView.builder(
+//                          shrinkWrap: true,
+//                          itemCount: snapshot.data.documents.length,
+//                          padding: const EdgeInsets.only(top: 5.0),
+//                          itemBuilder: (context, index) {
+//                            DocumentSnapshot ds = snapshot.data.documents[index];
+//                            return new Row(
+//                              textDirection: TextDirection.ltr,
+//                              children: <Widget>[
+//                                Expanded (child:Text(ds["Attendant"]) ),
+//                              ],
+//                            );
+//                          }
+//                      );
+                  }
                 }
               },
             )
@@ -79,4 +119,13 @@ class HomeTab extends StatelessWidget {
     );
   }
 
+  Widget _buildList(BuildContext context, DocumentSnapshot document) {
+    return ListTile(
+      title: Text(document['title']),
+      subtitle: Text(document['body']),
+    );
+  }
+
 }
+
+
