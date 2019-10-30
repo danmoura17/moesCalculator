@@ -1,13 +1,18 @@
 import 'package:sqflite/sqflite.dart';
 
-class OrderHelper{
+class Order{
+
+  String attendantName;
+  String clientName;
+  String date;
+  Item item;
 
 }
 
-class Order{
+class Item{
 
-  String attendant;
-  String date;
+  String productName;
+  String price;
 
 
 }

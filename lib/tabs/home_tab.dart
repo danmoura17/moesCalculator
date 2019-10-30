@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import'package:cloud_firestore/cloud_firestore.dart';
+import 'package:moes_calculator/ui/new_order_page.dart';
+import 'package:path/path.dart';
 
 class HomeTab extends StatelessWidget {
   @override
@@ -52,13 +54,20 @@ class HomeTab extends StatelessWidget {
                       child: Container(
                         height: 200.0,
                         alignment: Alignment.center,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                        ),
+                        child: ButtonBar(
+                          mainAxisSize: MainAxisSize.min ,
+                          children: <Widget>[
+                            new RaisedButton(
+                              child: new Text("Cadastrar"),
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => NewOrderPage()));
+                              },
+                            )
+                          ],
+                        )
                       )
                   );
                 }
-
               },
             )
           ],
@@ -66,4 +75,5 @@ class HomeTab extends StatelessWidget {
       ],
     );
   }
+
 }
